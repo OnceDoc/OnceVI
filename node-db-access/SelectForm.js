@@ -5,7 +5,7 @@
     ADODB.debug = true;
 
     // Connect to the MS Access DB
-    var connection = ADODB.open('Provider=Microsoft.ACE.OLEDB.12.0;Data Source=QueryChart.accdb;Persist Security Info=False;');
+    var connection = ADODB.open('Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Administrator\\Desktop\\QueryChart.accdb;Persist Security Info=False;User Id=admin;Password=;');
 
 
     /*
@@ -32,10 +32,17 @@
     app.get('/dataquery/All', function(req, res) {
       // Query the DB
       connection
+      //.query('SELECT * from MSysObjects')
       .query('SELECT top 100 * FROM [UserInfo]')
       .on('done', function (data){
           res.type('json')
           res.send(JSON.stringify(data.records, '    ', '    '))        
+
+          /* var sql = ''
+
+          data.records.forEach(function(record) {
+            sql += 'insert into "UserInfo"' */
+          //
       })
       .on('fail', function() {
           res.send({ error: 'The info if not found' })

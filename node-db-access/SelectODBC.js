@@ -5,7 +5,7 @@
     /*
     Driver for access
     */
-    var connStr = 'Driver={Microsoft Access Driver (*.mdb)};Dbq=QueryChart.accdb;Exclusive=1;Uid=admin;Pwd=;'
+    var connStr = 'Driver={Microsoft Access Driver (*.mdb)};Dbq=QueryChart.accdb;Exclusive=1;'
 
     db.openSync(connStr);
 
